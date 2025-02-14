@@ -1,0 +1,161 @@
+{
+  "$id": "LinkedIn",
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "required": ["Email Addresses.csv","Logins.csv","PhoneNumbers.csv","Profile.csv","Registration.csv","Rich Media.csv"],
+  "optional": ["Ads Clicked.csv","Ad_Targeting.csv","Causes You Care About.csv","Certifications.csv","Comments.csv","Company Follows.csv","Connections.csv","Courses.csv","Education.csv","Endorsement_Given_Info.csv","Endorsement_Received_Info.csv","Events.csv","Hashtag_Follows.csv","Honors.csv","Inferences_about_you.csv","Invitations.csv","Jobs/Job Seeker Preferences.csv","Jobs/Saved Jobs.csv","Languages.csv","Learning.csv","Member_Follows.csv","messages.csv","Positions.csv","Publications.csv","Reactions.csv","Recommendations_Given.csv","Recommendations_Received.csv","Saved_Items.csv","SavedJobAlerts.csv","SearchQueries.csv","Security Challenges.csv","Services Marketplace/Providers.csv","Shares.csv","Skills.csv","Votes.csv"],
+  "properties": {
+	"Ads Clicked.csv": { "items": { "required": [
+		"Ad clicked Date", "Ad Title/Id"
+	] } },
+	"Ad_Targeting.csv": { "items": { "required": [
+		"Member Age", "Company Follower of", "Company Size", "Degrees",
+		"degreeClass", "Fields of Study", "Member Gender","Graduation Year",
+		"Company Industries","Member Interests", "Interface Locales",
+		"interfaceLocale", "Company Revenue", "Member Skills",
+		"Years of Experience"
+	] } },
+	"Causes You Care About.csv": { "items": { "required": [
+		"Supported Cause"
+	] } },
+	"Certifications.csv": { "items": { "required": [
+		"Name", "Url", "Authority", "Started On", "Finished On", "License Number"
+	] } },
+	"Comments.csv": { "items": { "required": [
+		"Date", "Link", "Message"
+	] } },
+	"Company Follows.csv": { "items": { "required": [
+		"Organization", "Followed On"
+	] } },
+	"Connections.csv": { "items": { "required": [
+		"First Name", "Last Name", "URL", "Email Address", "Company",
+		"Position", "Connected On"
+	] } },
+	"Courses.csv": { "items": { "required": [
+		"Name", "Number"
+	] } },
+	"Education.csv": { "items": { "required": [
+		"School Name", "Start Date", "End Date", "Notes", "Degree Name",
+		"Activities"
+	] } },
+	"Email Addresses.csv": { "items": { "required": [
+		"Email Address", "Confirmed", "Primary", "Updated On"
+	] } },
+	"Endorsement_Given_Info.csv": { "items": { "required": [
+		"Endorsement Date", "Skill Name", "Endorsee First Name",
+		"Endorsee Last Name", "Endorsee Public Url", "Endorsement Status"
+	] } },
+	"Endorsement_Received_Info.csv": { "items": { "required": [
+		"Endorsement Date", "Skill Name", "Endorser First Name",
+		"Endorser Last Name", "Endorser Public Url", "Endorsement Status"
+	] } },
+	"Events.csv": { "items": { "required": [
+		"Event Name", "Event Time", "Status", "External Url"
+	] } },
+	"Hashtag_Follows.csv": { "items": { "required": [
+		"HashTag", "CreatedTime", "State", "LastModifiedTime"
+	] } },
+	"Honors.csv": { "items": { "required": [
+		"Title", "Description", "Issued On"
+	] } },
+	"Inferences_about_you.csv": { "items": { "required": [
+		"Category", "Type of inference", "Description", "Inference"
+	] } },
+	"Invitations.csv": { "items": { "required": [
+		"From", "To", "Sent At", "Message", "Direction"
+	] } },
+	"Jobs/Job Seeker Preferences.csv": { "items": { "required": [
+		"Locations", "Industries", "Company Employee Count",
+		"Preferred Job Types", "Job Titles", "Open To Recruiters",
+		"Dream Companies", "Profile Shared With Job Poster",
+		"Job Title For Searching Fast Growing Companies",
+		"Introduction Statement", "Phone Number",
+		"Open Candidate Visibility", "Job Seeking Urgency Level"
+	] } },
+	"Jobs/Saved Jobs.csv": { "items": { "required": [
+		"Saved Date", "Job Url", "Job Title", "Company Name"
+	] } },
+	"Languages.csv": { "items": { "required": [
+		"Name", "Proficiency"
+	] } },
+	"Learning.csv": { "items": { "required": [
+		"Content Title", "Content Description",
+		"Content Last Watched Date (if viewed)",
+		"Content Completed At (if completed)", "Content Saved",
+		"Notes taken on videos (if taken)"
+	] } },
+	"Logins.csv": { "items": { "required": [
+		"Login Date", "IP Address", "User Agent"
+	] } },
+	"Member_Follows.csv": { "items": { "required": [
+		"Date", "Status", "FullName"
+	] } },
+	"messages.csv": { "items": { "required": [
+		"CONVERSATION ID", "CONVERSATION TITLE", "FROM",
+		"SENDER PROFILE URL", "TO", "RECIPIENT PROFILE URLS", "DATE",
+		"SUBJECT", "CONTENT"
+	] } },
+	"PhoneNumbers.csv": { "items": { "required": [
+		"Extension", "Number", "Type"
+	] } },
+	"Positions.csv": { "items": { "required": [
+		"Company Name", "Title", "Description", "Location", "Started On",
+		"Finished On"
+	] } },
+	"Profile.csv": { "items": { "required": [
+		"First Name", "Last Name", "Maiden Name", "Address", "Birth Date",
+		"Headline", "Summary", "Industry", "Zip Code", "Geo Location",
+		"Twitter Handles", "Websites", "Instant Messengers"
+	] } },
+	"Publications.csv": { "items": { "required": [
+		"Name", "Published On", "Description", "Publisher", "Url"
+	] } },
+	"Reactions.csv": { "items": { "required": [
+		"Date", "Type", "Link"
+	] } },
+	"Recommendations_Given.csv": { "items": { "required": [
+		"First Name", "Last Name", "Company", "Job Title", "Text",
+		"Creation Date", "Status"
+	] } },
+	"Recommendations_Received.csv": { "items": { "required": [
+		"First Name", "Last Name", "Company", "Job Title", "Text",
+		"Creation Date", "Status"
+	] } },
+	"Registration.csv": { "items": { "required": [
+		"Registered At", "Registration Ip", "Subscription Types"
+	] } },
+	"Rich Media.csv": { "items": { "required": [
+		"Type", "Link"
+	] } },
+	"Saved_Items.csv": { "items": { "required": [
+		"savedItem", "createdTime"
+	] } },
+	"SavedJobAlerts.csv": { "items": { "required": [
+		"Saved Search Date", "Jobs Search Url"
+	] } },
+	"SearchQueries.csv": { "items": { "required": [
+		"Time", "Search Query"
+	] } },
+	"Security Challenges.csv": { "items": { "required": [
+		"Challenge Date", "Country", "Challenge Type"
+	] } },
+	"Services Marketplace/Providers.csv": { "items": { "required": [
+		"Creation Time", "Marketplace Type", "Secondary Service Category",
+		"Available to Work Remotely", "Status"
+	] } },
+	"Shares.csv": { "items": {
+		"required": [
+			"Date", "ShareLink", "ShareCommentary", "Visibility"
+		],
+		"oneOf": [
+			{ "required": ["SharedURL", "MediaURL"] },
+			{ "required": ["SharedUrl", "MediaUrl"] }
+		]
+	} },
+	"Skills.csv": { "items": { "required": [
+		"Name"
+	] } },
+	"Votes.csv": { "items": { "required": [
+		"Date", "Link", "OptionText"
+	] } }
+  }
+}

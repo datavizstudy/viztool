@@ -1,0 +1,343 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "ext:",
+      "@type": [
+        "voaf:Vocabulary",
+        "owl:Ontology"
+      ],
+      "dc:contributors": "The Authors",
+      "dc:description": {
+        "@value": "Schema.org extension to map data exports to JSON objects",
+        "@language": "en"
+      },
+      "dc:date": {
+        "@value": "2023-09-23",
+        "@type": "xsd:date"
+      },
+      "dc:title": "Schema.org Data Export Extension",
+      "voaf:extends": {
+        "@id": "schema:"
+      },
+      "voaf:specializes": {
+        "@id": "schema:"
+      },
+      "owl:versionInfo": "0.1"
+    },
+    {
+      "@id": "/#SecurityChallenge",
+      "@type": [
+        "rdfs:Class",
+        "owl:Class"
+      ],
+      "rdfs:label": "SecurityChallenge",
+      "rdfs:comment": {
+        "@value": "Security challenges imposed for securing an account, e.g. two-factor-authentication when logging into an account",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "schema:Action"
+      }
+    },
+    {
+      "@id": "/#location",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:comment": {
+        "@value": "Location of security challenge (may be based on IP address with virtual challenges)",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "schema:location"
+      },
+      "schema:domainIncludes": [
+        {
+          "@id": "/#SecurityChallenge"
+        },
+        {
+          "@id": "schema:Person"
+        }
+      ]
+    },
+    {
+      "@id": "/#type",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:label": "type",
+      "rdfs:comment": {
+        "@value": "Type of performing the security challenge e.g. via email, mobile application or SMS",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "schema:domainIncludes": {
+        "@id": "/#SecurityChallenge"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:DefinedTerm"
+        },
+        {
+          "@id": "schema:Text"
+        },
+        {
+          "@id": "schema:URL"
+        }
+      ]
+    },
+    {
+      "@id": "/#urgency",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:label": "urgency",
+      "rdfs:comment": {
+        "@value": "Urgency or priority for a specific action",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "schema:domainIncludes": {
+        "@id": "/#Action"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:DefinedTerm"
+        },
+        {
+          "@id": "schema:QuantitativeValue"
+        },
+        {
+          "@id": "schema:Number"
+        },
+        {
+          "@id": "schema:Text"
+        }
+      ]
+    },
+    {
+      "@id": "/#LoginAction",
+      "@type": [
+        "rdf:Class",
+        "owl:Class"
+      ],
+      "rdfs:label": "LoginAction",
+      "rdfs:comment": {
+        "@value": "The act of logging in as a user to a service, product or web page.",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "schema:CheckInAction"
+      }
+    },
+    {
+      "@id": "/#occupationAt",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:label": "occupationAt",
+      "rdfs:comment": {
+        "@value": "Organization or Person, where the occupation is pursued at.",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "schema:domainIncludes": {
+        "@id": "schema:Occupation"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Organization"
+        },
+        {
+          "@id": "schema:Person"
+        }
+      ]
+    },
+    {
+      "@id": "/#startDate",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:label": "startDate",
+      "rdfs:comment": {
+        "@value": "Starting date of the occupation",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "schema:domainIncludes": {
+        "@id": "schema:Occupation"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Date"
+        },
+        {
+          "@id": "schema:DateTime"
+        }
+      ]
+    },
+    {
+      "@id": "/#endDate",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:label": "endDate",
+      "rdfs:comment": {
+        "@value": "Last date of the occupation",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "schema:domainIncludes": {
+        "@id": "schema:Occupation"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Date"
+        },
+        {
+          "@id": "schema:DateTime"
+        }
+      ]
+    },
+    {
+      "@id": "/#maidenName",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:label": "maidenName",
+      "rdfs:comment": {
+        "@value": "The family name from birth before being changed e.g. by marriage",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "schema:domainIncludes": {
+        "@id": "schema:Person"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "/#industry",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "schema:industry"
+      },
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Person"
+        },
+        {
+          "@id": "schema:Organization"
+        }
+      ]
+    },
+    {
+      "@id": "/#InferenceAction",
+      "@type": [
+        "rdf:Class",
+        "owl:Class"
+      ],
+      "rdfs:label": "InferenceAction",
+      "rdfs:comment": {
+        "@value": "Action of inferring from a fact to other facts",
+        "@language": "en"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "schema:Action"
+      }
+    },
+    {
+      "@id": "/#category",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "schema:category"
+      },
+      "schema:domainIncludes": {
+        "@id": "/#InferenceAction"
+      }
+    },
+    {
+      "@id": "/#status",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:label": "status",
+      "rdfs:subPropertyOf": {
+        "@id": "schema:actionStatus"
+      },
+      "rdfs:domainIncludes": {
+        "@id": "schema:Service"
+      }
+    },
+    {
+      "@id": "/#expires",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "ext:"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "schema:expires"
+      },
+      "schema:domainIncludes": {
+        "@id": "schema:Service"
+      }
+    }
+  ]
+}

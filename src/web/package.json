@@ -1,0 +1,55 @@
+{
+  "name": "data-export-visualisation",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/calc-sample-dataset-signatures.js ../../sample-exports/* ../../sample-exports/**/* > artefacts/sample-dataset-signatures.json",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "private": true,
+  "description": "Visualisation of data exports",
+  "keywords": [
+    "data",
+    "export",
+    "visualisation",
+    "portability",
+    "GDPR"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@ramonak/react-progress-bar": "^5.2.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "cimice": "^0.7.0",
+    "crypto-hash": "^3.0.0",
+    "data-export-to-schema-org": "file:../core",
+    "js-sha256": "^0.11.0",
+    "jsonld": "^8.3.2",
+    "moment": "^2.29.4",
+    "plotly.js-dist-min": "^2.30.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-flatpickr": "^3.10.13",
+    "react-loader-spinner": "^6.1.6",
+    "react-plotly.js": "^2.6.0",
+    "react-router-dom": "^6.3.0",
+    "react-transition-group": "^4.4.2",
+    "sane-topojson": "^4.0.0",
+    "schema2plotly": "file:../schema2plotly",
+    "smob": "^1.5.0",
+    "uniqid": "^5.4.0"
+  },
+  "devDependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@vitejs/plugin-react": "^2.0.0",
+    "autoprefixer": "^10.4.7",
+    "buffer": "^6.0.3",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.6",
+    "util": "^0.12.5",
+    "vite": "^3.0.0",
+    "vite-plugin-static-copy": "^0.17.1"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$id": "Spotify",
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "properties": {
+	"Follow.json": {
+		"optional": ["followerCount", "followingUsersCount"],		
+		"properties": {
+			"followingArtists": { "type": "array" }
+		}
+	},
+	"Inferences.json": {
+		"required": ["inferences"],
+		"properties": {
+			"inferences": { "type": "array" }
+		}
+	},
+	"Payments.json": {
+		"required": ["payment_method"],
+		"optional":["country", "postal_code", "creation_date"]
+	},
+	"SearchQueries.json": { "items": {
+		"required": ["platform", "searchTime", "searchQuery",
+			"searchInteractionURIs"],
+		"properties": {
+			"searchInteractionURIs": { "type": "array" }
+		}
+	} },
+	"Userdata.json": {
+		"required": ["username", "email", "country", "createdFromFacebook",
+			"birthdate", "gender", "creationTime"],
+		"optional": ["facebookUid", "postalCode", "mobileNumber",
+			"mobileOperator", "mobileBrand"]
+	},
+	"YourLibrary.json": {
+		"required": ["tracks", "albums", "shows", "episodes", "bannedTracks",
+			"other"],
+		"properties": {
+			"tracks":{ "items":{
+				"required": ["artist", "album", "track"]
+			} },
+			"albums":{ "items":{
+				"required": ["artist", "album"]
+			} },
+			"shows":{ "items":{
+				"required": ["name", "publisher"]
+			} },
+			"bannedTracks":{
+				"$ref": "#/properties/YourLibrary.json/properties/tracks"
+			}
+		}
+	}
+  },
+  "required": ["Payments.json", "Userdata.json", "YourLibrary.json"],
+  "patternProperties": {
+	"^Playlist[0-9]*\\.json$":{
+		"required": ["playlists"],
+		"properties":{
+			"playlists":{ "items":{
+				"required":["name","lastModifiedDate","items",
+					"numberOfFollowers"],
+				"optional":["description"],
+				"properties":{
+					"items":{ "items":{
+						"required":["track"],
+						"optional":["episode", "localTrack"],
+						"properties":{
+							"track":{
+								"required":["trackName","artistName","albumName"]
+							}
+						}
+					} }
+				}
+			} }
+		}
+	},
+	"^StreamingHistory(_music_)?[0-9]*\\.json$":{ "items":{
+		"required":["endTime","artistName","trackName","msPlayed"]
+	} }
+ }
+}

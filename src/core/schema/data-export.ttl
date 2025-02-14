@@ -1,0 +1,121 @@
+@prefix ext: </#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ext: a voaf:Vocabulary, owl:Ontology ;
+	dc:contributors "The Authors" ;
+	dc:description "Schema.org extension to map data exports to JSON objects"@en ;
+	dc:date "2023-09-23"^^xsd:date ;
+	dc:title "Schema.org Data Export Extension" ;
+	voaf:extends schema: ;
+	voaf:specializes schema: ;
+	owl:versionInfo "0.1" .
+
+
+# === SECURITY CHALLENGE (+ PERSON LOCATION) ===
+ext:SecurityChallenge a rdfs:Class, owl:Class ;
+	rdfs:label "SecurityChallenge" ;
+	rdfs:comment "Security challenges imposed for securing an account, e.g. two-factor-authentication when logging into an account"@en ;
+	rdfs:isDefinedBy ext: ;
+	rdfs:subClassOf schema:Action .
+
+ext:location a rdf:Property, owl:ObjectProperty ;
+	rdfs:comment "Location of security challenge (may be based on IP address with virtual challenges)"@en ;
+	rdfs:isDefinedBy ext: ;
+	rdfs:subPropertyOf schema:location ;
+	schema:domainIncludes ext:SecurityChallenge, schema:Person .
+
+ext:type a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "type" ;
+	rdfs:comment "Type of performing the security challenge e.g. via email, mobile application or SMS"@en ;
+	rdfs:isDefinedBy ext: ;
+	schema:domainIncludes ext:SecurityChallenge ;
+	schema:rangeIncludes schema:DefinedTerm, schema:Text, schema:URL .
+
+
+# === ACTION URGENCY ===
+ext:urgency a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "urgency" ;
+	rdfs:comment "Urgency or priority for a specific action"@en ;
+	rdfs:isDefinedBy ext: ;
+	schema:domainIncludes ext:Action ;
+	schema:rangeIncludes schema:DefinedTerm, schema:QuantitativeValue, schema:Number, schema:Text .
+
+
+# === LOGIN ACTION ===
+ext:LoginAction a rdf:Class, owl:Class ;
+	rdfs:label "LoginAction" ;
+	rdfs:comment "The act of logging in as a user to a service, product or web page."@en ;
+	rdfs:isDefinedBy ext: ;
+	rdfs:subClassOf schema:CheckInAction .
+
+
+# === OCCUPATION PROPERTIES ===
+ext:occupationAt a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "occupationAt" ;
+	rdfs:comment "Organization or Person, where the occupation is pursued at."@en ;
+	rdfs:isDefinedBy ext: ;
+	schema:domainIncludes schema:Occupation ;
+	schema:rangeIncludes schema:Organization, schema:Person .
+
+ext:startDate a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "startDate" ;
+	rdfs:comment "Starting date of the occupation"@en ;
+	rdfs:isDefinedBy ext: ;
+	schema:domainIncludes schema:Occupation ;
+	schema:rangeIncludes schema:Date, schema:DateTime .
+
+ext:endDate a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "endDate" ;
+	rdfs:comment "Last date of the occupation"@en ;
+	rdfs:isDefinedBy ext: ;
+	schema:domainIncludes schema:Occupation ;
+	schema:rangeIncludes schema:Date, schema:DateTime .
+
+
+# === MAIDEN NAME ===
+ext:maidenName a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "maidenName" ;
+	rdfs:comment "The family name from birth before being changed e.g. by marriage"@en ;
+	rdfs:isDefinedBy ext: ;
+	schema:domainIncludes schema:Person ;
+	schema:rangeIncludes schema:Text .
+
+
+# === INDUSTRY ===
+ext:industry a rdf:Property, owl:ObjectProperty ;
+	rdfs:isDefinedBy ext: ;
+	rdfs:subPropertyOf schema:industry ;
+	schema:domainIncludes schema:Person, schema:Organization .
+
+
+# === INFERENCE ===
+ext:InferenceAction a rdf:Class, owl:Class ;
+	rdfs:label "InferenceAction" ;
+	rdfs:comment "Action of inferring from a fact to other facts"@en ;
+	rdfs:isDefinedBy ext: ;
+	rdfs:subClassOf schema:Action .
+
+ext:category a rdf:Property, owl:ObjectProperty ;
+	rdfs:isDefinedBy ext: ;
+	rdfs:subPropertyOf schema:category ;
+	schema:domainIncludes ext:InferenceAction .
+
+
+# === SERVICE ===
+# === SERVICE STATUS ===
+ext:status a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "status" ;
+	rdfs:subPropertyOf schema:actionStatus ;
+	rdfs:domainIncludes schema:Service .
+
+# === SERVICE EXPIRY (e.g. for payment cards) ===
+ext:expires a rdf:Property, owl:ObjectProperty ;
+	rdfs:isDefinedBy ext: ;
+	rdfs:subPropertyOf schema:expires ;
+	schema:domainIncludes schema:Service .

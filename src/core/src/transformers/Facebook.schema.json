@@ -1,0 +1,8 @@
+{
+  "$id": "Facebook",
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "required": ["comments/comments.json", "following_and_followers/followed_pages.json", "following_and_followers/followers.json", "friends/friends.json", "likes_and_reactions/posts_and_comments.json", "photos_and_videos/your_videos.json", "posts/your_posts.json", "profile_information/profile_information.json", "security_and_login_information/account_activity.json"],
+  "optional": [],
+  "properties": {
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "schema2plotly",
+  "version": "1.0.0",
+  "description": "Converts Schema.org objects and optional extensions to Plotly JSON diagram objects",
+  "type": "module",
+  "keywords": [
+    "Schema.org",
+    "export",
+    "unification",
+    "visualisation",
+    "Plotly",
+    "charts"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "sed -i 's/module.exports = {/module.exports = {MultiVal,/g' ./node_modules/jsonld-object-graph/src/index.js; npm run prebuild",
+    "prebuild": "node prebuild.js ../core/schema/*.jsonld",
+    "build": "esbuild src/index.js src/ext/* --bundle --minify --format=esm --sourcemap=linked --outdir=browser",
+    "test": "node --test $(find test/ -type f -not -path 'test/debug/*')"
+  },
+  "dependencies": {
+    "almete.wordcloud": "git://github.com/SeregPie/almete.WordCloud.git",
+    "chrono-node": "^2.7.5",
+    "escape-string-regexp": "^5.0.0",
+    "jsonld": "^8.3.1",
+    "jsonld-object-graph": "^1.0.9"
+  },
+  "devDependencies": {
+    "esbuild": "latest"
+  }
+}
